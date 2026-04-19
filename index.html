@@ -3,121 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGR Eid Challenge - التسجيل</title>
+  <title>AGR Eid Challenge - التسجيل الرسمي</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-    body { 
-      margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
-      background: url('static/bg.jpg') no-repeat center center fixed; background-size: cover;
-      color: #fff; text-align: center; line-height: 1.6;
-    }
-    main {
-      padding: 30px 20px; backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.7);
-      margin: 20px auto; border-radius: 15px; max-width: 850px;
-      border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-    .details { text-align: right; margin-bottom: 30px; padding: 20px; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.05); }
-    .details h3 { color: #ffdd00; border-bottom: 2px solid #ffdd00; display: inline-block; padding-bottom: 8px; }
-    .form-section { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; margin-bottom: 25px; }
+    body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; color: #fff; text-align: center; background: #111 url('static/bg.jpg') no-repeat center center fixed; background-size: cover; line-height: 1.6; }
+    main { padding: 30px 20px; backdrop-filter: blur(12px); background-color: rgba(0, 0, 0, 0.85); margin: 20px auto; border-radius: 20px; max-width: 800px; border: 1px solid rgba(255, 215, 0, 0.3); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7); }
+    .header-icons img { width: 120px; filter: drop-shadow(0 0 15px rgba(255, 221, 0, 0.6)); }
+    h1 { font-size: 2.2em; color: #ffdd00; text-shadow: 0 0 20px rgba(0, 0, 0, 0.9); }
+    .form-section { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; }
     .input-wrapper { width: 48%; display: flex; flex-direction: column; text-align: right; }
     .full-width { width: 100%; }
-    label { font-weight: bold; color: #ffdd00; margin-bottom: 8px; font-size: 0.95em; }
-    input, select { padding: 14px; border-radius: 8px; border: 1px solid #444; background: #f9f9f9; color: #333; width: 100%; box-sizing: border-box; }
-    button#submitBtn {
-      background: #ff4500; color: #fff; font-weight: bold; font-size: 1.4em; padding: 16px; border: none; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.3s;
-    }
-    button#submitBtn:hover { background: #e03e00; transform: translateY(-3px); }
+    label { font-weight: bold; color: #ffdd00; margin-bottom: 8px; font-size: 0.9em; }
+    input, select { padding: 14px; border-radius: 10px; border: 1px solid #444; background: #fff; color: #222; width: 100%; box-sizing: border-box; }
+    button#submitBtn { background: linear-gradient(45deg, #ff4500, #ff8c00); color: #fff; font-weight: bold; font-size: 1.4em; padding: 18px; border: none; border-radius: 12px; cursor: pointer; margin-top: 30px; width: 100%; transition: 0.4s; box-shadow: 0 8px 20px rgba(255, 69, 0, 0.4); }
+    button#submitBtn:disabled { background: #444; cursor: not-allowed; }
     @media (max-width: 650px) { .input-wrapper { width: 100%; } }
   </style>
 </head>
 <body>
 
-<header style="padding:20px;">
-  <img src="static/logo.png" alt="AGR Logo" style="width:120px;">
-  <h1 style="color:#ffdd00; text-shadow: 0 0 10px #ffd700;">تحدي العيد من <span dir="ltr">AGR</span> 🌙</h1>
+<header style="padding: 20px;">
+  <img src="static/logo.png" alt="AGR Logo" class="header-icons">
+  <h1>تحدي العيد من <span dir="ltr">AGR</span> 🌙</h1>
 </header>
 
 <main>
-  <div class="details">
-    <h3>تعليمات التسجيل</h3>
-    <ul style="list-style:disc; padding-right:25px;">
-        <li>الاسم بالإنجليزية فقط للشهادات والميداليات.</li>
-        <li>تأكد من اختيار الفئة العمرية الصحيحة لفتح التحديات المتاحة لك.</li>
-    </ul>
-  </div>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){handleSuccess();}"></iframe>
 
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccess(); }"></iframe>
-
-  <form id="regForm" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfOMCIhwk6-yrqu-yx-sxwHKjFSLDPsmnyEcWAod6Ql6zxsiw/formResponse">
+  <form id="agrForm" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfOMCIhwk6-yrqu-yx-sxwHKjFSLDPsmnyEcWAod6Ql6zxsiw/formResponse">
     <div class="form-section">
         <div class="input-wrapper full-width">
-            <label>الاسم الرباعي (بالإنجليزية)</label>
+            <label>الاسم الرباعي (English Only)</label>
             <input type="text" name="entry.1112362374" id="name" placeholder="Full Name in English" pattern="[a-zA-Z\s]+" required>
         </div>
+
         <div class="input-wrapper">
             <label>تاريخ الميلاد</label>
             <input type="date" name="entry.430574773" id="dob" required>
         </div>
+
         <div class="input-wrapper">
             <label>النوع</label>
             <select name="entry.444597116" id="gender" required>
-                <option value="">اختر...</option>
+                <option value="">اختر النوع...</option>
                 <option value="ذكر">ذكر</option>
                 <option value="أنثى">أنثى</option>
             </select>
         </div>
+
         <div class="input-wrapper">
-            <label>المحافظة</label>
-            <input type="text" name="entry.714961820" id="governorate" required>
+            <label>المحافظة / المدينة</label>
+            <input type="text" name="entry.714961820" id="city" placeholder="اكتب محافظتك" required>
         </div>
+
         <div class="input-wrapper">
             <label>رقم الواتساب</label>
-            <input type="tel" name="entry.380930077" id="phone" required>
+            <input type="tel" name="entry.380930077" id="phone" placeholder="01xxxxxxxxx" required>
         </div>
+
         <div class="input-wrapper full-width">
             <label>الفئة العمرية</label>
             <select name="entry.1888533519" id="category" required onchange="updateOptions()">
-                <option value="">-- اختر الفئة --</option>
-                <option value="سينيور (Senior) - 16 سنة فما فوق">سينيور (Senior) - 16 سنة فما فوق</option>
-                <option value="جونيور (Junior) - تحت 16 سنة">جونيور (Junior) - تحت 16 سنة</option>
+                <option value="">-- اختر الفئة العمرية أولاً --</option>
+                <option value="جونيور (Junior) - حتى 16 سنة">جونيور (Junior) - حتى 16 سنة</option>
+                <option value="سينيور (Senior) - فوق 16 سنة">سينيور (Senior) - فوق 16 سنة</option>
             </select>
         </div>
 
         <div class="input-wrapper">
-            <label>نوع التحدي</label>
-            <select id="challengeDisplay" required disabled onchange="syncData()"></select>
+            <label>نوع التحدي والمسافة</label>
+            <select id="challengeDisplay" required disabled onchange="syncFields()"></select>
+            <input type="hidden" name="entry.1995806128" id="jChal">
+            <input type="hidden" name="entry.762355901" id="sChal">
         </div>
+
         <div class="input-wrapper">
             <label>باقة الاشتراك</label>
-            <select id="packageDisplay" required disabled onchange="syncData()"></select>
+            <select id="packageDisplay" required disabled onchange="syncFields()"></select>
+            <input type="hidden" name="entry.185047638" id="jPack">
+            <input type="hidden" name="entry.1842057656" id="sPack">
         </div>
+
+        <input type="hidden" name="fvv" value="1">
+        <input type="hidden" name="draftResponse" value="[]">
+        <input type="hidden" name="pageHistory" id="pageHistory" value="0">
     </div>
 
-    <input type="hidden" name="fvv" value="1">
-    <input type="hidden" name="draftResponse" value="[]">
-    <input type="hidden" name="pageHistory" id="pageHistory" value="0">
-    
-    <input type="hidden" name="entry.1995806128" id="jChal">
-    <input type="hidden" name="entry.185047638" id="jPack">
-    <input type="hidden" name="entry.762355901" id="sChal">
-    <input type="hidden" name="entry.1842057656" id="sPack">
-
-    <button type="submit" id="submitBtn">تأكيد التسجيل</button>
+    <button type="submit" id="submitBtn">تأكيد واشتراك الآن</button>
   </form>
 </main>
 
 <script>
     let submitted = false;
-    const regForm = document.getElementById('regForm');
 
-    const opts = {
-        senior: {
-            challenges: ['دراجات (300 كم)', 'جري (120 كم)', 'مشي (100 كم)', 'سبيد سكيتر (200 كم)'],
-            packages: ['ميدالية (100 ج.م)', 'ميدالية + تيشيرت (300 ج.م)', 'ميدالية + حامل ميداليات (450 ج.م)', 'ميدالية+تيشيرت+حامل+كاب (600 ج.م)', 'الباقة الشاملة (750 ج.م)']
+    const optionsMap = {
+        "جونيور (Junior) - حتى 16 سنة": {
+            history: "0,1",
+            challenges: ["تحدي الجونيور (50 كم جري)"],
+            packages: ["ميدالية (100 ج.م)", "ميدالية + تيشرت كَت (250 ج.م)"]
         },
-        junior: {
-            challenges: ['جري (50 كم)'],
-            packages: ['ميدالية (100 ج.م)', 'ميدالية + تيشيرت كت (250 ج.م)']
+        "سينيور (Senior) - فوق 16 سنة": {
+            history: "0,2",
+            challenges: ["دراجات (300 كم)", "جري (120 كم)", "مشي (100 كم)", "سبيد سكيتر (200 كم)"],
+            packages: ["ميدالية (100 ج.م)", "ميدالية + تيشيرت (300 ج.م)", "ميدالية + حامل ميداليات (450 ج.م)"]
         }
     };
 
@@ -125,219 +113,53 @@
         const cat = document.getElementById('category').value;
         const chalSel = document.getElementById('challengeDisplay');
         const packSel = document.getElementById('packageDisplay');
-        chalSel.innerHTML = '<option value="">اختر التحدي...</option>';
-        packSel.innerHTML = '<option value="">اختر الباقة...</option>';
-        
-        if (!cat) { chalSel.disabled = packSel.disabled = true; return; }
-        
-        chalSel.disabled = packSel.disabled = false;
-        const type = cat.includes("جونيور") ? "junior" : "senior";
-        document.getElementById('pageHistory').value = type === "junior" ? "0,1" : "0,2";
+        const historyInput = document.getElementById('pageHistory');
 
-        opts[type].challenges.forEach(c => chalSel.add(new Option(c, c)));
-        opts[type].packages.forEach(p => packSel.add(new Option(p, p)));
-        if(type === "junior") chalSel.value = opts.junior.challenges[0];
-        syncData();
+        chalSel.innerHTML = '<option value="">اختر التحدي</option>';
+        packSel.innerHTML = '<option value="">اختر الباقة</option>';
+
+        if (cat && optionsMap[cat]) {
+            chalSel.disabled = false; packSel.disabled = false;
+            historyInput.value = optionsMap[cat].history;
+            optionsMap[cat].challenges.forEach(opt => chalSel.add(new Option(opt, opt)));
+            optionsMap[cat].packages.forEach(opt => packSelect.add(new Option(opt, opt)));
+        } else {
+            chalSel.disabled = true; packSel.disabled = true;
+            historyInput.value = "0";
+        }
     }
 
-    function syncData() {
+    // وظيفة لربط الاختيارات الظاهرة بالحقول المخفية الموجهة لجوجل
+    function syncFields() {
         const cat = document.getElementById('category').value;
-        const chal = document.getElementById('challengeDisplay').value;
-        const pack = document.getElementById('packageDisplay').value;
-        
-        // تفريغ الكل أولاً
-        document.getElementById('jChal').value = document.getElementById('jPack').value = "";
-        document.getElementById('sChal').value = document.getElementById('sPack').value = "";
+        const chalVal = document.getElementById('challengeDisplay').value;
+        const packVal = document.getElementById('packageDisplay').value;
+
+        // تصفير الكل أولاً
+        document.getElementById('jChal').value = ""; document.getElementById('sChal').value = "";
+        document.getElementById('jPack').value = ""; document.getElementById('sPack').value = "";
 
         if (cat.includes("جونيور")) {
-            document.getElementById('jChal').value = chal;
-            document.getElementById('jPack').value = pack;
+            document.getElementById('jChal').value = chalVal;
+            document.getElementById('jPack').value = packVal;
         } else {
-            document.getElementById('sChal').value = chal;
-            document.getElementById('sPack').value = pack;
+            document.getElementById('sChal').value = chalVal;
+            document.getElementById('sPack').value = packVal;
         }
     }
 
-    regForm.onsubmit = () => { submitted = true; document.getElementById('submitBtn').disabled = true; };
-
-    function showSuccess() {
-        alert("تم استلام بياناتك بنجاح! عيد مبارك 🎉");
-        regForm.reset();
-        submitted = false;
-        document.getElementById('submitBtn').disabled = false;
-        updateOptions();
-    }
-</script>
-</body>
-              </html><!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGR Eid Challenge - التسجيل</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-    body { 
-      margin: 0; padding: 0; font-family: 'Cairo', sans-serif; 
-      background: url('static/bg.jpg') no-repeat center center fixed; background-size: cover;
-      color: #fff; text-align: center; line-height: 1.6;
-    }
-    main {
-      padding: 30px 20px; backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.7);
-      margin: 20px auto; border-radius: 15px; max-width: 850px;
-      border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-    .details { text-align: right; margin-bottom: 30px; padding: 20px; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.05); }
-    .details h3 { color: #ffdd00; border-bottom: 2px solid #ffdd00; display: inline-block; padding-bottom: 8px; }
-    .form-section { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; margin-bottom: 25px; }
-    .input-wrapper { width: 48%; display: flex; flex-direction: column; text-align: right; }
-    .full-width { width: 100%; }
-    label { font-weight: bold; color: #ffdd00; margin-bottom: 8px; font-size: 0.95em; }
-    input, select { padding: 14px; border-radius: 8px; border: 1px solid #444; background: #f9f9f9; color: #333; width: 100%; box-sizing: border-box; }
-    button#submitBtn {
-      background: #ff4500; color: #fff; font-weight: bold; font-size: 1.4em; padding: 16px; border: none; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.3s;
-    }
-    button#submitBtn:hover { background: #e03e00; transform: translateY(-3px); }
-    @media (max-width: 650px) { .input-wrapper { width: 100%; } }
-  </style>
-</head>
-<body>
-
-<header style="padding:20px;">
-  <img src="static/logo.png" alt="AGR Logo" style="width:120px;">
-  <h1 style="color:#ffdd00; text-shadow: 0 0 10px #ffd700;">تحدي العيد من <span dir="ltr">AGR</span> 🌙</h1>
-</header>
-
-<main>
-  <div class="details">
-    <h3>تعليمات التسجيل</h3>
-    <ul style="list-style:disc; padding-right:25px;">
-        <li>الاسم بالإنجليزية فقط للشهادات والميداليات.</li>
-        <li>تأكد من اختيار الفئة العمرية الصحيحة لفتح التحديات المتاحة لك.</li>
-    </ul>
-  </div>
-
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccess(); }"></iframe>
-
-  <form id="regForm" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfOMCIhwk6-yrqu-yx-sxwHKjFSLDPsmnyEcWAod6Ql6zxsiw/formResponse">
-    <div class="form-section">
-        <div class="input-wrapper full-width">
-            <label>الاسم الرباعي (بالإنجليزية)</label>
-            <input type="text" name="entry.1112362374" id="name" placeholder="Full Name in English" pattern="[a-zA-Z\s]+" required>
-        </div>
-        <div class="input-wrapper">
-            <label>تاريخ الميلاد</label>
-            <input type="date" name="entry.430574773" id="dob" required>
-        </div>
-        <div class="input-wrapper">
-            <label>النوع</label>
-            <select name="entry.444597116" id="gender" required>
-                <option value="">اختر...</option>
-                <option value="ذكر">ذكر</option>
-                <option value="أنثى">أنثى</option>
-            </select>
-        </div>
-        <div class="input-wrapper">
-            <label>المحافظة</label>
-            <input type="text" name="entry.714961820" id="governorate" required>
-        </div>
-        <div class="input-wrapper">
-            <label>رقم الواتساب</label>
-            <input type="tel" name="entry.380930077" id="phone" required>
-        </div>
-        <div class="input-wrapper full-width">
-            <label>الفئة العمرية</label>
-            <select name="entry.1888533519" id="category" required onchange="updateOptions()">
-                <option value="">-- اختر الفئة --</option>
-                <option value="سينيور (Senior) - 16 سنة فما فوق">سينيور (Senior) - 16 سنة فما فوق</option>
-                <option value="جونيور (Junior) - تحت 16 سنة">جونيور (Junior) - تحت 16 سنة</option>
-            </select>
-        </div>
-
-        <div class="input-wrapper">
-            <label>نوع التحدي</label>
-            <select id="challengeDisplay" required disabled onchange="syncData()"></select>
-        </div>
-        <div class="input-wrapper">
-            <label>باقة الاشتراك</label>
-            <select id="packageDisplay" required disabled onchange="syncData()"></select>
-        </div>
-    </div>
-
-    <input type="hidden" name="fvv" value="1">
-    <input type="hidden" name="draftResponse" value="[]">
-    <input type="hidden" name="pageHistory" id="pageHistory" value="0">
-    
-    <input type="hidden" name="entry.1995806128" id="jChal">
-    <input type="hidden" name="entry.185047638" id="jPack">
-    <input type="hidden" name="entry.762355901" id="sChal">
-    <input type="hidden" name="entry.1842057656" id="sPack">
-
-    <button type="submit" id="submitBtn">تأكيد التسجيل</button>
-  </form>
-</main>
-
-<script>
-    let submitted = false;
-    const regForm = document.getElementById('regForm');
-
-    const opts = {
-        senior: {
-            challenges: ['دراجات (300 كم)', 'جري (120 كم)', 'مشي (100 كم)', 'سبيد سكيتر (200 كم)'],
-            packages: ['ميدالية (100 ج.م)', 'ميدالية + تيشيرت (300 ج.م)', 'ميدالية + حامل ميداليات (450 ج.م)', 'ميدالية+تيشيرت+حامل+كاب (600 ج.م)', 'الباقة الشاملة (750 ج.م)']
-        },
-        junior: {
-            challenges: ['جري (50 كم)'],
-            packages: ['ميدالية (100 ج.م)', 'ميدالية + تيشيرت كت (250 ج.م)']
-        }
+    document.getElementById('agrForm').onsubmit = function() {
+        syncFields(); // التأكد من نقل البيانات قبل الإرسال
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').textContent = "جاري الحفظ في AGR...";
+        submitted = true; // تفعيل مراقب الـ iframe
     };
 
-    function updateOptions() {
-        const cat = document.getElementById('category').value;
-        const chalSel = document.getElementById('challengeDisplay');
-        const packSel = document.getElementById('packageDisplay');
-        chalSel.innerHTML = '<option value="">اختر التحدي...</option>';
-        packSel.innerHTML = '<option value="">اختر الباقة...</option>';
-        
-        if (!cat) { chalSel.disabled = packSel.disabled = true; return; }
-        
-        chalSel.disabled = packSel.disabled = false;
-        const type = cat.includes("جونيور") ? "junior" : "senior";
-        document.getElementById('pageHistory').value = type === "junior" ? "0,1" : "0,2";
-
-        opts[type].challenges.forEach(c => chalSel.add(new Option(c, c)));
-        opts[type].packages.forEach(p => packSel.add(new Option(p, p)));
-        if(type === "junior") chalSel.value = opts.junior.challenges[0];
-        syncData();
-    }
-
-    function syncData() {
-        const cat = document.getElementById('category').value;
-        const chal = document.getElementById('challengeDisplay').value;
-        const pack = document.getElementById('packageDisplay').value;
-        
-        // تفريغ الكل أولاً
-        document.getElementById('jChal').value = document.getElementById('jPack').value = "";
-        document.getElementById('sChal').value = document.getElementById('sPack').value = "";
-
-        if (cat.includes("جونيور")) {
-            document.getElementById('jChal').value = chal;
-            document.getElementById('jPack').value = pack;
-        } else {
-            document.getElementById('sChal').value = chal;
-            document.getElementById('sPack').value = pack;
-        }
-    }
-
-    regForm.onsubmit = () => { submitted = true; document.getElementById('submitBtn').disabled = true; };
-
-    function showSuccess() {
-        alert("تم استلام بياناتك بنجاح! عيد مبارك 🎉");
-        regForm.reset();
-        submitted = false;
-        document.getElementById('submitBtn').disabled = false;
-        updateOptions();
+    function handleSuccess() {
+        alert("✅ تم التسجيل بنجاح في تحدي AGR!\nعيد مبارك، سنتواصل معك قريباً.");
+        window.location.reload();
     }
 </script>
+
 </body>
 </html>
