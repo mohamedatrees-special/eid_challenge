@@ -3,28 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGR Eid Challenge - التسجيل الرسمي</title>
+  <title>AGR Eid Challenge - التسجيل المباشر</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-    body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; color: #fff; text-align: center; background: #111 url('static/bg.jpg') no-repeat center center fixed; background-size: cover; scroll-behavior: smooth; }
     
-    /* تحديد حجم اللوجو بالبكسل لضمان عدم كبر حجمه */
-    .header-icons img { width: 70px !important; height: 70px !important; margin-top: 15px; filter: drop-shadow(0 0 10px rgba(255, 221, 0, 0.4)); object-fit: contain; }
-    h1 { font-size: 1.8em; color: #ffdd00; margin-bottom: 20px; }
-
-    .start-btn { background: #ffdd00; color: #000; padding: 12px 35px; font-size: 1.3em; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 0 15px rgba(255, 221, 0, 0.5); margin-bottom: 40px; }
-
-    main { display: none; padding: 25px 15px; backdrop-filter: blur(15px); background-color: rgba(0, 0, 0, 0.9); margin: 10px auto 40px auto; border-radius: 20px; max-width: 700px; border: 1px solid rgba(255, 215, 0, 0.3); }
+    body { 
+      margin: 0; padding: 0; font-family: 'Cairo', sans-serif; color: #fff; text-align: center; 
+      background: #000 url('static/bg.jpg') no-repeat center center fixed; 
+      background-size: cover; scroll-behavior: smooth; 
+    }
     
-    .details { text-align: right; margin-bottom: 20px; padding: 12px; border-right: 4px solid #ffdd00; background-color: rgba(255, 255, 255, 0.05); font-size: 0.85em; }
-    .form-section { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+    /* اللوجو صغير وسيلفر */
+    .header-icons img { 
+      width: 50px !important; height: auto !important; 
+      margin-top: 15px; filter: grayscale(100%) brightness(1.2); 
+    }
+
+    h1 { font-size: 1.5em; color: #d1d1d1; margin-bottom: 20px; }
+
+    /* الزرار سيلفر وبدون رموز */
+    .start-btn { 
+      background: linear-gradient(145deg, #d1d1d1, #a1a1a1); 
+      color: #000; padding: 10px 35px; font-size: 1.2em; font-weight: bold; 
+      border: 1px solid #fff; border-radius: 50px; cursor: pointer; 
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); transition: 0.3s;
+    }
+    .start-btn:hover { background: #fff; transform: scale(1.05); }
+
+    main { 
+      display: none; padding: 20px 15px; backdrop-filter: blur(15px); 
+      background-color: rgba(0, 0, 0, 0.9); margin: 5px auto 30px auto; 
+      border-radius: 15px; max-width: 600px; border: 1px solid rgba(255, 255, 255, 0.2); 
+    }
+    
+    .details { 
+      text-align: right; margin-bottom: 20px; padding: 10px; 
+      border-right: 3px solid #d1d1d1; background-color: rgba(255, 255, 255, 0.05); 
+      font-size: 0.8em; line-height: 1.8;
+    }
+
+    .form-section { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
     .input-wrapper { width: 48%; display: flex; flex-direction: column; text-align: right; }
     .full-width { width: 100%; }
-    label { font-weight: bold; color: #ffdd00; margin-bottom: 5px; font-size: 0.8em; }
-    input, select { padding: 10px; border-radius: 8px; border: 1px solid #444; background: #fff; color: #222; width: 100%; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+
+    label { font-weight: bold; color: #d1d1d1; margin-bottom: 4px; font-size: 0.8em; }
     
-    button#submitBtn { background: linear-gradient(45deg, #ff4500, #ff8c00); color: #fff; font-weight: bold; font-size: 1.2em; padding: 14px; border: none; border-radius: 10px; cursor: pointer; margin-top: 20px; width: 100%; }
-    @media (max-width: 650px) { .input-wrapper { width: 100%; } }
+    input, select { 
+      padding: 10px; border-radius: 8px; border: 1px solid #444; 
+      background: #fff; color: #222; width: 100%; box-sizing: border-box; 
+      font-family: 'Cairo', sans-serif; font-size: 0.9em; 
+    }
+    
+    button#submitBtn { 
+      background: linear-gradient(45deg, #7f8c8d, #34495e); 
+      color: #fff; font-weight: bold; font-size: 1.1em; padding: 12px; 
+      border: none; border-radius: 10px; cursor: pointer; margin-top: 15px; width: 100%; 
+    }
+
+    @media (max-width: 600px) { .input-wrapper { width: 100%; } }
   </style>
 </head>
 <body>
@@ -32,7 +68,7 @@
 <header>
   <img src="static/logo.png" alt="AGR Logo" class="header-icons">
   <h1>تحدي العيد من <span dir="ltr">AGR</span> 🌙</h1>
-  <button id="startTrigger" class="start-btn" onclick="showForm()">ابدأ التحدي الآن 🚀</button>
+  <button id="startTrigger" class="start-btn" onclick="showForm()">ابدأ التحدي الآن</button>
 </header>
 
 <main id="registrationArea">
@@ -43,42 +79,36 @@
     <p>• يرجى كتابة الاسم بالإنجليزية فقط لضمان دقة الشهادة.</p>
   </div>
 
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof submitted !== 'undefined' && submitted){handleSuccess();}"></iframe>
-
-  <form id="agrForm" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfOMCIhwk6-yrqu-yx-sxwHKjFSLDPsmnyEcWAod6Ql6zxsiw/formResponse">
+  <form id="directForm">
     <div class="form-section">
         <div class="input-wrapper full-width">
             <label>الاسم الرباعي (English Only)</label>
-            <input type="text" name="entry.1112362374" placeholder="Full Name in English" pattern="[a-zA-Z\s]+" required>
+            <input type="text" id="name" name="name" placeholder="Full Name in English" required>
         </div>
-
         <div class="input-wrapper">
             <label>تاريخ الميلاد</label>
-            <input type="date" name="entry.430574773" required>
+            <input type="date" id="dob" name="dob" required>
         </div>
-
         <div class="input-wrapper">
             <label>النوع</label>
-            <select name="entry.444597116" required>
+            <select id="gender" name="gender" required>
                 <option value="">اختر النوع...</option>
                 <option value="ذكر">ذكر</option>
                 <option value="أنثى">أنثى</option>
             </select>
         </div>
-
         <div class="input-wrapper">
             <label>المحافظة</label>
-            <input type="text" name="entry.714961820" required placeholder="اكتب محافظتك">
+            <input type="text" id="city" name="city" required placeholder="اكتب محافظتك">
         </div>
-
         <div class="input-wrapper">
             <label>رقم الواتساب</label>
-            <input type="tel" name="entry.380930077" required placeholder="01xxxxxxxxx">
+            <input type="tel" id="phone" name="phone" required placeholder="01xxxxxxxxx">
         </div>
 
         <div class="input-wrapper full-width">
             <label>الفئة العمرية</label>
-            <select name="entry.1888533519" id="category" required onchange="updateOptions()">
+            <select id="category" name="category" required onchange="updateOptions()">
                 <option value="">-- اختر الفئة --</option>
                 <option value="جونيور (Junior) - حتى 16 سنة">جونيور (Junior) - حتى 16 سنة</option>
                 <option value="سينيور (Senior) - فوق 16 سنة">سينيور (Senior) - فوق 16 سنة</option>
@@ -87,35 +117,26 @@
 
         <div class="input-wrapper">
             <label>نوع التحدي</label>
-            <select id="challengeDisplay" required disabled></select>
+            <select id="challengeDisplay" name="challenge" required disabled></select>
         </div>
-
         <div class="input-wrapper">
             <label>باقة الاشتراك</label>
-            <select id="packageDisplay" required disabled></select>
+            <select id="packageDisplay" name="package" required disabled></select>
         </div>
-
-        <input type="hidden" name="fvv" value="1">
-        <input type="hidden" name="draftResponse" value="[]">
-        <input type="hidden" name="pageHistory" id="pageHistory" value="0">
     </div>
     <button type="submit" id="submitBtn">تأكيد الاشتراك</button>
   </form>
 </main>
 
 <script>
-    let submitted = false;
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzZorsOTVptpezXxlZU3eb8MTFNItxF6uSK7M0LipwrgLdthtSOw5BmzV8mX02ngDBe/exec';
 
     const optionsMap = {
         "جونيور (Junior) - حتى 16 سنة": {
-            history: "0,1",
-            cID: "entry.1995806128", pID: "entry.185047638",
             chals: ["تحدي الجونيور (50 كم جري)"],
             packs: ["ميدالية (100 ج.م)", "ميدالية + تيشيرت كت (250 ج.م)"]
         },
         "سينيور (Senior) - فوق 16 سنة": {
-            history: "0,2",
-            cID: "entry.762355901", pID: "entry.1842057656",
             chals: ["دراجات (300 كم)", "جري (120 كم)", "مشي (100 كم)", "سبيد سكيتر (200 كم)"],
             packs: [
                 "ميدالية (100 ج.م)", 
@@ -129,7 +150,7 @@
 
     function showForm() {
         document.getElementById('registrationArea').style.display = 'block';
-        document.getElementById('startTrigger').style.display = 'none';
+        document.getElementById('startTrigger')?.style.setProperty('display', 'none');
         window.scrollTo(0, document.getElementById('registrationArea').offsetTop - 20);
     }
 
@@ -143,28 +164,31 @@
 
         if (cat && optionsMap[cat]) {
             chalSel.disabled = false; packSel.disabled = false;
-            document.getElementById('pageHistory').value = optionsMap[cat].history;
-            
-            // تغيير اسم الحقل برمجياً ليتناسب مع جوجل
-            chalSel.name = optionsMap[cat].cID;
-            packSel.name = optionsMap[cat].pID;
-
             optionsMap[cat].chals.forEach(o => chalSel.add(new Option(o, o)));
             optionsMap[cat].packs.forEach(o => packSel.add(new Option(o, o)));
         }
     }
 
-    document.getElementById('agrForm').onsubmit = function() {
-        document.getElementById('submitBtn').disabled = true;
-        document.getElementById('submitBtn').textContent = "جاري الحفظ...";
-        submitted = true;
-        return true;
-    };
+    document.getElementById('directForm').onsubmit = function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.textContent = "جاري الحفظ في AGR...";
 
-    function handleSuccess() {
-        alert("✅ تم التسجيل بنجاح! عيد مبارك.");
-        window.location.reload();
-    }
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: new FormData(this)
+        })
+        .then(response => {
+            alert("✅ تم التسجيل بنجاح في تحدي AGR! عيد مبارك.");
+            window.location.reload();
+        })
+        .catch(error => {
+            alert("حدث خطأ في الإرسال، حاول مرة أخرى.");
+            btn.disabled = false;
+            btn.textContent = "تأكيد الاشتراك";
+        });
+    };
 </script>
 </body>
 </html>
