@@ -8,79 +8,106 @@
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
     
     body { 
-      margin: 0; padding: 0; font-family: 'Cairo', sans-serif; color: #fff; text-align: center; 
+      margin: 0; padding: 0; font-family: 'Cairo', sans-serif; color: #f0f0f0; text-align: center; 
       background: #000 url('static/bg.jpg') no-repeat center center fixed; 
       background-size: cover; scroll-behavior: smooth; 
     }
     
-    /* 🎯 الهيدر متظبط عشان اللوجو يظهر بوضوح */
+    /* 🎯 الهيدر لإدارة الترتيب */
     header {
-      padding: 30px 0;
+      padding: 20px 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
 
-    /* 🔥 اللوجو بالألوان الطبيعية وحجم 120 بكسل */
+    /* 🔥 اللوجو على اليمين في الكمبيوتر وفي النص في الموبايل */
     .header-icons { 
       width: 120px !important; 
       height: auto !important; 
       display: block;
-      margin: 10px auto;
-      filter: none; /* شيلنا السيلفر عشان يرجع لألوانه الطبيعية */
+      margin: 10px 0;
       transition: 0.3s;
+      align-self: flex-end; /* بيجيبه يمين */
     }
 
-    .header-icons:hover {
-      transform: scale(1.05);
-    }
+    .header-icons:hover { transform: scale(1.05); }
 
+    /* ✨ تأثير الـ Glow على العنوان */
     h1 { 
-      font-size: 1.6em; 
-      color: #d1d1d1; 
-      margin: 15px 0 25px 0; 
+      font-size: 1.8em; 
+      color: #ffffff; /* أبيض صريح */
+      margin: 15px 0 30px 0; 
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5); /* الـ Glow */
+      align-self: center; /* بيفضل في النص */
     }
 
-    /* الزرار سيلفر شيك وبدون رموز */
+    /* 🥈 زرار البداية الفضي اللامع */
     .start-btn { 
-      background: linear-gradient(145deg, #d1d1d1, #a1a1a1); 
-      color: #000; padding: 12px 35px; font-size: 1.2em; font-weight: bold; 
-      border: 1px solid #fff; border-radius: 50px; cursor: pointer; 
-      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); transition: 0.3s;
-    }
-    .start-btn:hover { background: #fff; transform: scale(1.05); }
-
-    main { 
-      display: none; padding: 25px 15px; backdrop-filter: blur(15px); 
-      background-color: rgba(0, 0, 0, 0.9); margin: 5px auto 40px auto; 
-      border-radius: 20px; max-width: 650px; border: 1px solid rgba(255, 255, 255, 0.2); 
+      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 25%, #bdbdbd 50%, #e0e0e0 75%, #ffffff 100%);
+      background-size: 200% auto;
+      color: #000; padding: 14px 40px; font-size: 1.3em; font-weight: bold; 
+      border: 1px solid #ffffff; border-radius: 50px; cursor: pointer; 
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); 
+      transition: 0.5s;
+      align-self: center;
     }
     
+    .start-btn:hover { 
+      background-position: right center; /* تأثير اللمعة المحركة */
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+    }
+
+    /* 🧊 المربع الشفاف ببلور خفيف جداً */
+    main { 
+      display: none; padding: 30px 25px; 
+      backdrop-filter: blur(5px); /* بلور خفيف أوي */
+      background-color: rgba(0, 0, 0, 0.6); /* شفافية عالية */
+      margin: 10px auto 40px auto; 
+      border-radius: 20px; max-width: 650px; 
+      border: 1px solid rgba(255, 255, 255, 0.1); /* حد رفيع جداً */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* لون الكلام داخل الفورم */
+    .details, label, select option { color: #e0e0e0; }
+    
     .details { 
-      text-align: right; margin-bottom: 25px; padding: 12px; 
-      border-right: 4px solid #d1d1d1; background-color: rgba(255, 255, 255, 0.05); 
-      font-size: 0.85em; line-height: 1.8;
+      text-align: right; margin-bottom: 25px; padding: 15px; 
+      border-right: 4px solid #ffffff; background-color: rgba(255, 255, 255, 0.03); 
+      font-size: 0.9em; line-height: 1.8;
     }
 
     .form-section { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
     .input-wrapper { width: 48%; display: flex; flex-direction: column; text-align: right; }
     .full-width { width: 100%; }
 
-    label { font-weight: bold; color: #d1d1d1; margin-bottom: 5px; font-size: 0.85em; }
+    label { font-weight: bold; margin-bottom: 6px; font-size: 0.85em; }
     
     input, select { 
-      padding: 12px; border-radius: 8px; border: 1px solid #444; 
-      background: #fff; color: #222; width: 100%; box-sizing: border-box; 
+      padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); 
+      background: rgba(255, 255, 255, 0.9); color: #000; /* خلفية بيضاء سادة للكتابة */
+      width: 100%; box-sizing: border-box; 
       font-family: 'Cairo', sans-serif; font-size: 0.95em; 
     }
     
+    /* زرار الإرسال سيلفر غامق ليليق بالفورم الشفافة */
     button#submitBtn { 
-      background: linear-gradient(45deg, #7f8c8d, #34495e); 
-      color: #fff; font-weight: bold; font-size: 1.2em; padding: 14px; 
+      background: linear-gradient(45deg, #a1a1a1, #555555); 
+      color: #fff; font-weight: bold; font-size: 1.2em; padding: 15px; 
       border: none; border-radius: 10px; cursor: pointer; margin-top: 20px; width: 100%; 
+      transition: 0.3s;
     }
+    
+    button#submitBtn:hover { background: linear-gradient(45deg, #bdbdbd, #757575); }
 
-    @media (max-width: 600px) { .input-wrapper { width: 100%; } }
+    /* ريسبونسيف للموبايل */
+    @media (max-width: 650px) { 
+      .input-wrapper { width: 100%; } 
+      header { padding: 20px; }
+      .header-icons { align-self: center; margin: 10px auto; } /* بيرجع في النص في الموبايل */
+    }
   </style>
 </head>
 <body>
@@ -112,9 +139,9 @@
         <div class="input-wrapper">
             <label>النوع</label>
             <select id="gender" name="gender" required>
-                <option value="">اختر النوع...</option>
-                <option value="ذكر">ذكر</option>
-                <option value="أنثى">أنثى</option>
+                <option value="" style="color:#000;">اختر النوع...</option>
+                <option value="ذكر" style="color:#000;">ذكر</option>
+                <option value="أنثى" style="color:#000;">أنثى</option>
             </select>
         </div>
         <div class="input-wrapper">
@@ -129,19 +156,19 @@
         <div class="input-wrapper full-width">
             <label>الفئة العمرية</label>
             <select id="category" name="category" required onchange="updateOptions()">
-                <option value="">-- اختر الفئة --</option>
-                <option value="جونيور (Junior) - حتى 16 سنة">جونيور (Junior) - حتى 16 سنة</option>
-                <option value="سينيور (Senior) - فوق 16 سنة">سينيور (Senior) - فوق 16 سنة</option>
+                <option value="" style="color:#000;">-- اختر الفئة --</option>
+                <option value="جونيور (Junior) - حتى 16 سنة" style="color:#000;">جونيور (Junior) - حتى 16 سنة</option>
+                <option value="سينيور (Senior) - فوق 16 سنة" style="color:#000;">سينيور (Senior) - فوق 16 سنة</option>
             </select>
         </div>
 
         <div class="input-wrapper">
             <label>نوع التحدي</label>
-            <select id="challengeDisplay" name="challenge" required disabled></select>
+            <select id="challengeDisplay" name="challenge" required disabled style="color:#000;"></select>
         </div>
         <div class="input-wrapper">
             <label>باقة الاشتراك</label>
-            <select id="packageDisplay" name="package" required disabled></select>
+            <select id="packageDisplay" name="package" required disabled style="color:#000;"></select>
         </div>
     </div>
     <button type="submit" id="submitBtn">تأكيد الاشتراك</button>
@@ -182,13 +209,21 @@
         const chalSel = document.getElementById('challengeDisplay');
         const packSel = document.getElementById('packageDisplay');
         
-        chalSel.innerHTML = '<option value="">اختر التحدي</option>';
-        packSel.innerHTML = '<option value="">اختر الباقة</option>';
+        chalSel.innerHTML = '<option value="" style="color:#000;">اختر التحدي</option>';
+        packSel.innerHTML = '<option value="" style="color:#000;">اختر الباقة</option>';
 
         if (cat && optionsMap[cat]) {
             chalSel.disabled = false; packSel.disabled = false;
-            optionsMap[cat].chals.forEach(o => chalSel.add(new Option(o, o)));
-            optionsMap[cat].packs.forEach(o => packSel.add(new Option(o, o)));
+            optionsMap[cat].chals.forEach(o => {
+                const opt = new Option(o, o);
+                opt.style.color = "#000"; // لضمان ظهور الكلام في القائمة
+                chalSel.add(opt);
+            });
+            optionsMap[cat].packs.forEach(o => {
+                const opt = new Option(o, o);
+                opt.style.color = "#000";
+                packSel.add(opt);
+            });
         }
     }
 
