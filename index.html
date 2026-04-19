@@ -13,11 +13,16 @@
       background-size: cover; scroll-behavior: smooth; 
     }
     
-    /* اللوجو صغير وسيلفر */
-    .header-icons img { 
-      width: 50px !important; height: auto !important; 
-      margin-top: 15px; filter: grayscale(100%) brightness(1.2); 
-    }
+
+    /* حل مشكلة اللوجو - حجم ثابت وصغير جداً */
+.header-icons img { 
+  width: 45px !important; /* حجم صغير جداً */
+  max-width: 45px !important;
+  height: auto !important; 
+  display: block;
+  margin: 10px auto; /* توسيط اللوجو */
+  filter: grayscale(100%) brightness(1.2); /* اللون السيلفر */
+}
 
     h1 { font-size: 1.5em; color: #d1d1d1; margin-bottom: 20px; }
 
