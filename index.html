@@ -8,24 +8,24 @@
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
     body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; color: #fff; text-align: center; background: #111 url('static/bg.jpg') no-repeat center center fixed; background-size: cover; line-height: 1.6; scroll-behavior: smooth; }
     
-    /* تصغير اللوجو */
-    .header-icons img { width: 80px; margin-top: 20px; filter: drop-shadow(0 0 10px rgba(255, 221, 0, 0.4)); }
-    h1 { font-size: 2em; color: #ffdd00; margin-bottom: 30px; }
+    /* تصغير اللوجو جداً */
+    .header-icons img { width: 60px; height: auto; margin-top: 15px; filter: drop-shadow(0 0 8px rgba(255, 221, 0, 0.4)); }
+    h1 { font-size: 1.8em; color: #ffdd00; margin-bottom: 20px; }
 
     /* زرار البداية */
-    .start-btn { background: #ffdd00; color: #000; padding: 15px 40px; font-size: 1.5em; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 221, 0, 0.5); margin-bottom: 50px; }
-    .start-btn:hover { transform: scale(1.1); background: #fff; }
+    .start-btn { background: #ffdd00; color: #000; padding: 12px 35px; font-size: 1.3em; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px rgba(255, 221, 0, 0.5); margin-bottom: 40px; }
+    .start-btn:hover { transform: scale(1.05); background: #fff; }
 
-    main { display: none; padding: 30px 20px; backdrop-filter: blur(12px); background-color: rgba(0, 0, 0, 0.85); margin: 20px auto; border-radius: 20px; max-width: 800px; border: 1px solid rgba(255, 215, 0, 0.3); }
+    main { display: none; padding: 25px 15px; backdrop-filter: blur(15px); background-color: rgba(0, 0, 0, 0.9); margin: 10px auto 40px auto; border-radius: 20px; max-width: 750px; border: 1px solid rgba(255, 215, 0, 0.3); }
     
-    .details { text-align: right; margin-bottom: 25px; padding: 15px; border-right: 4px solid #ffdd00; background-color: rgba(255, 255, 255, 0.05); font-size: 0.9em; }
-    .form-section { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; }
+    .details { text-align: right; margin-bottom: 20px; padding: 12px; border-right: 4px solid #ffdd00; background-color: rgba(255, 255, 255, 0.05); font-size: 0.85em; }
+    .form-section { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
     .input-wrapper { width: 48%; display: flex; flex-direction: column; text-align: right; }
     .full-width { width: 100%; }
-    label { font-weight: bold; color: #ffdd00; margin-bottom: 8px; font-size: 0.85em; }
-    input, select { padding: 12px; border-radius: 10px; border: 1px solid #444; background: #fff; color: #222; width: 100%; box-sizing: border-box; }
+    label { font-weight: bold; color: #ffdd00; margin-bottom: 5px; font-size: 0.8em; }
+    input, select { padding: 10px; border-radius: 8px; border: 1px solid #444; background: #fff; color: #222; width: 100%; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
     
-    button#submitBtn { background: linear-gradient(45deg, #ff4500, #ff8c00); color: #fff; font-weight: bold; font-size: 1.3em; padding: 15px; border: none; border-radius: 12px; cursor: pointer; margin-top: 25px; width: 100%; }
+    button#submitBtn { background: linear-gradient(45deg, #ff4500, #ff8c00); color: #fff; font-weight: bold; font-size: 1.2em; padding: 14px; border: none; border-radius: 10px; cursor: pointer; margin-top: 20px; width: 100%; }
     @media (max-width: 650px) { .input-wrapper { width: 100%; } }
   </style>
 </head>
@@ -34,18 +34,18 @@
 <header>
   <img src="static/logo.png" alt="AGR Logo" class="header-icons">
   <h1>تحدي العيد من <span dir="ltr">AGR</span> 🌙</h1>
-  <button class="start-btn" onclick="showForm()">ابدأ التحدي الآن 🚀</button>
+  <button id="startTrigger" class="start-btn" onclick="showForm()">ابدأ التحدي الآن 🚀</button>
 </header>
 
 <main id="registrationArea">
   <div class="details">
-    <h3>تعليمات الاشتراك</h3>
+    <strong>تعليمات الاشتراك:</strong>
     <p>• الدفع متاح عبر (المحافظ الإلكترونية - انستا باي InstaPay).</p>
     <p>• متاح شراء منتجات AGR منفردة خارج التحدي عبر الواتساب.</p>
     <p>• يرجى كتابة الاسم بالإنجليزية فقط لضمان دقة الشهادة.</p>
   </div>
 
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){handleSuccess();}"></iframe>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof submitted !== 'undefined' && submitted){handleSuccess();}"></iframe>
 
   <form id="agrForm" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfOMCIhwk6-yrqu-yx-sxwHKjFSLDPsmnyEcWAod6Ql6zxsiw/formResponse">
     <div class="form-section">
@@ -70,12 +70,12 @@
 
         <div class="input-wrapper">
             <label>المحافظة</label>
-            <input type="text" name="entry.714961820" id="city" required>
+            <input type="text" name="entry.714961820" id="city" required placeholder="اكتب محافظتك">
         </div>
 
         <div class="input-wrapper">
             <label>رقم الواتساب</label>
-            <input type="tel" name="entry.380930077" id="phone" required>
+            <input type="tel" name="entry.380930077" id="phone" required placeholder="01xxxxxxxxx">
         </div>
 
         <div class="input-wrapper full-width">
@@ -89,14 +89,14 @@
 
         <div class="input-wrapper">
             <label>نوع التحدي</label>
-            <select id="challengeDisplay" required disabled onchange="sync()"></select>
+            <select id="challengeDisplay" required disabled></select>
             <input type="hidden" name="entry.1995806128" id="jChal">
             <input type="hidden" name="entry.762355901" id="sChal">
         </div>
 
         <div class="input-wrapper">
-            <label>الباقة</label>
-            <select id="packageDisplay" required disabled onchange="sync()"></select>
+            <label>باقة الاشتراك</label>
+            <select id="packageDisplay" required disabled></select>
             <input type="hidden" name="entry.185047638" id="jPack">
             <input type="hidden" name="entry.1842057656" id="sPack">
         </div>
@@ -127,13 +127,15 @@
 
     function showForm() {
         document.getElementById('registrationArea').style.display = 'block';
-        window.scrollTo(0, document.getElementById('registrationArea').offsetTop - 50);
+        document.getElementById('startTrigger').style.display = 'none';
+        window.scrollTo(0, document.getElementById('registrationArea').offsetTop - 20);
     }
 
     function updateOptions() {
         const cat = document.getElementById('category').value;
         const chalSel = document.getElementById('challengeDisplay');
         const packSel = document.getElementById('packageDisplay');
+        
         chalSel.innerHTML = '<option value="">اختر التحدي</option>';
         packSel.innerHTML = '<option value="">اختر الباقة</option>';
 
@@ -142,30 +144,38 @@
             document.getElementById('pageHistory').value = optionsMap[cat].history;
             optionsMap[cat].chals.forEach(o => chalSel.add(new Option(o, o)));
             optionsMap[cat].packs.forEach(o => packSel.add(new Option(o, o)));
+        } else {
+            chalSel.disabled = true; packSel.disabled = true;
         }
-        sync();
     }
 
-    function sync() {
+    // وظيفة الإرسال النهائية لضمان نقل القيم للحقول المخفية
+    document.getElementById('agrForm').onsubmit = function() {
         const cat = document.getElementById('category').value;
         const cv = document.getElementById('challengeDisplay').value;
         const pv = document.getElementById('packageDisplay').value;
         
-        document.getElementById('jChal').value = cat.includes("جونيور") ? cv : "";
-        document.getElementById('sChal').value = cat.includes("سينيور") ? cv : "";
-        document.getElementById('jPack').value = cat.includes("جونيور") ? pv : "";
-        document.getElementById('sPack').value = cat.includes("سينيور") ? pv : "";
-    }
+        // تصفير القيم القديمة
+        document.getElementById('jChal').value = ""; document.getElementById('sChal').value = "";
+        document.getElementById('jPack').value = ""; document.getElementById('sPack').value = "";
 
-    document.getElementById('agrForm').onsubmit = function() {
-        sync();
+        // تعبئة الحقل الصحيح بناءً على الفئة
+        if (cat.includes("جونيور")) {
+            document.getElementById('jChal').value = cv;
+            document.getElementById('jPack').value = pv;
+        } else if (cat.includes("سينيور")) {
+            document.getElementById('sChal').value = cv;
+            document.getElementById('sPack').value = pv;
+        }
+
         document.getElementById('submitBtn').disabled = true;
-        document.getElementById('submitBtn').textContent = "جاري الإرسال...";
+        document.getElementById('submitBtn').textContent = "جاري الحفظ...";
         submitted = true;
+        return true;
     };
 
     function handleSuccess() {
-        alert("✅ تم التسجيل بنجاح! نراك في التحدي.");
+        alert("✅ تم إرسال بياناتك بنجاح لـ AGR!\nسنتواصل معك عبر الواتساب لتأكيد الدفع.");
         window.location.reload();
     }
 </script>
